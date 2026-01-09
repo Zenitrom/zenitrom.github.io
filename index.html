@@ -1,9 +1,9 @@
-<!DOCTYPE html>  
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mago Profesional | Espectáculos de Magia</title>
+  <title>ZENIT | Magia y Mentalismo</title>
   <style>
     body {
       margin: 0;
@@ -11,45 +11,106 @@
       background: #0f0f14;
       color: #ffffff;
     }
+
+    /* HEADER */
     header {
-      background: linear-gradient(135deg, #5b2cff, #f5c542);
-      padding: 60px 20px;
-      text-align: center;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(15,15,20,0.95);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 25px;
+      z-index: 1000;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.5);
     }
+
     header h1 {
-      font-size: 3rem;
       margin: 0;
+      font-size: 1.5rem;
+      color: #f5c542;
+      letter-spacing: 2px;
     }
-    header p {
-      font-size: 1.2rem;
-      margin-top: 10px;
+
+    /* MENU */
+    .menu-btn {
+      font-size: 1.8rem;
+      cursor: pointer;
+      user-select: none;
     }
-    section {
+
+    .menu {
+      position: fixed;
+      top: 0;
+      right: -260px;
+      width: 260px;
+      height: 100%;
+      background: #1c1c27;
       padding: 60px 20px;
+      transition: right 0.3s ease;
+      box-shadow: -10px 0 20px rgba(0,0,0,0.4);
+    }
+
+    .menu a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+      margin: 20px 0;
+    }
+
+    .menu a:hover {
+      color: #f5c542;
+    }
+
+    .menu.open {
+      right: 0;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 100px 20px;
       max-width: 900px;
       margin: auto;
     }
-    h2 {
-      color: #f5c542;
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(135deg, #5b2cff, #f5c542);
+      color: #000;
     }
-    .servicios {
+
+    .hero h2 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    h3 {
+      color: #f5c542;
+      font-size: 2rem;
+    }
+
+    .cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
+      margin-top: 30px;
     }
+
     .card {
       background: #1c1c27;
-      padding: 20px;
-      border-radius: 12px;
+      padding: 25px;
+      border-radius: 15px;
       box-shadow: 0 10px 20px rgba(0,0,0,0.3);
     }
-    .cta {
-      text-align: center;
-      background: #5b2cff;
-      padding: 40px 20px;
-      border-radius: 20px;
-    }
-    .cta a {
+
+    .contacto a {
       display: inline-block;
       margin-top: 20px;
       background: #f5c542;
@@ -59,59 +120,76 @@
       text-decoration: none;
       font-weight: bold;
     }
+
     footer {
       text-align: center;
-      padding: 30px 10px;
-      font-size: 0.9rem;
+      padding: 40px 20px;
       color: #aaa;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>Mago Profesional</h1>
-  <p>Magia moderna, mentalismo y experiencias imposibles</p>
+  <h1>ZENIT</h1>
+  <div class="menu-btn" onclick="toggleMenu()">☰</div>
 </header>
 
-<section>
-  <h2>Sobre mí</h2>
-  <p>
-    Soy mago especializado en magia de cerca, mentalismo y espectáculos
-    interactivos. Mi objetivo no es solo sorprender, sino crear recuerdos
-    imposibles que el público no olvida.
-  </p>
+<div class="menu" id="menu">
+  <a href="#inicio" onclick="toggleMenu()">Inicio</a>
+  <a href="#shows" onclick="toggleMenu()">Shows</a>
+  <a href="#bio" onclick="toggleMenu()">Biografía</a>
+  <a href="#contacto" onclick="toggleMenu()">Contacto</a>
+</div>
+
+<section class="hero" id="inicio">
+  <h2>Magia que rompe la lógica</h2>
+  <p>No es un espectáculo. Es una experiencia.</p>
 </section>
 
-<section>
-  <h2>Servicios</h2>
-  <div class="servicios">
+<section id="shows">
+  <h3>Tipos de Show</h3>
+  <div class="cards">
     <div class="card">
-      <h3>Eventos privados</h3>
-      <p>Cumpleaños, celebraciones y reuniones exclusivas.</p>
+      <h4>Magia de Calle</h4>
+      <p>Directa, cercana y sin filtros. El público forma parte del milagro.</p>
     </div>
     <div class="card">
-      <h3>Eventos de empresa</h3>
-      <p>Magia para cenas, congresos y team building.</p>
+      <h4>Mentalismo</h4>
+      <p>Lectura psicológica, predicciones y decisiones imposibles.</p>
     </div>
     <div class="card">
-      <h3>Magia de calle</h3>
-      <p>Espectáculos cercanos, directos y memorables.</p>
+      <h4>Eventos Privados</h4>
+      <p>Experiencias exclusivas para celebraciones y empresas.</p>
     </div>
   </div>
 </section>
 
-<section class="cta">
-  <h2>¿Hablamos?</h2>
-  <p>Reserva tu espectáculo o pide información sin compromiso</p>
-  <a href="mailto:tucorreo@email.com">Contactar</a>
+<section id="bio">
+  <h3>Biografía</h3>
+  <p>
+    ZENIT explora los límites entre la memoria, la percepción y el azar.
+    Cada espectáculo está diseñado para dejar una huella real en quien lo vive.
+    No hay trucos rápidos: hay construcción, tensión y asombro.
+  </p>
+</section>
+
+<section id="contacto" class="contacto">
+  <h3>Contacto</h3>
+  <p>¿Quieres llevar esta experiencia a tu evento?</p>
+  <a href="mailto:tucorreo@email.com">Escríbeme</a>
 </section>
 
 <footer>
-  <p>© 2026 · Mago Profesional</p>
+  © 2026 · ZENIT
 </footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('menu').classList.toggle('open');
+  }
+</script>
 
 </body>
 </html>
-
-
